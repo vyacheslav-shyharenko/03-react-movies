@@ -5,7 +5,7 @@ interface ErrorMessageProps {
 }
 
 const ErrorMessage = (props: ErrorMessageProps) => {
-  return <></>;
+  return <>{props}</>;
 };
 
 export default ErrorMessage;

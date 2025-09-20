@@ -8,6 +8,7 @@ interface MovieModalProps {
 const MovieModal = (props: MovieModalProps) => {
   return (
     <>
+      {props}
       <div className={css.backdrop} role="dialog" aria-modal="true">
         <div className={css.modal}>
           <button className={css.closeButton} aria-label="Close modal">

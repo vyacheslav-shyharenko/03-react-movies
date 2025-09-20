@@ -8,6 +8,7 @@ interface SearchBarProps {
 const SearchBar = (props: SearchBarProps) => {
   return (
     <>
+      {props}
       <header className={styles.header}>
         <div className={styles.container}>
           <a

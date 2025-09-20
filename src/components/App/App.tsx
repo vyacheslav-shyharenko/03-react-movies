@@ -5,7 +5,7 @@ interface AppProps {
 }
 
 const App = (props: AppProps) => {
-  return <></>;
+  return <>{props}</>;
 };
 
 export default App;

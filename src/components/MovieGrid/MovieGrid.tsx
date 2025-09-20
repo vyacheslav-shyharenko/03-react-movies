@@ -8,6 +8,7 @@ interface MovieGridProps {
 const MovieGrid = (props: MovieGridProps) => {
   return (
     <>
+      {props}
       <ul className={css.grid}>
         <li>
           <div className={css.card}>

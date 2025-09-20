@@ -5,7 +5,7 @@ interface LoaderProps {
 }
 
 const Loader = (props: LoaderProps) => {
-  return <></>;
+  return <>{props}</>;
 };
 
 export default Loader;
