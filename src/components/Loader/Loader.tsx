@@ -1,6 +1,8 @@
 import './Loader.module.css';
 
-interface LoaderProps {}
+interface LoaderProps {
+  name: string;
+}
 
 const Loader = (props: LoaderProps) => {
   return <></>;

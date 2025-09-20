@@ -1,7 +1,9 @@
 import './SearchBar.module.css';
 import styles from './SearchBar.module.css';
 
-interface SearchBarProps {}
+interface SearchBarProps {
+  name: string;
+}
 
 const SearchBar = (props: SearchBarProps) => {
   return (

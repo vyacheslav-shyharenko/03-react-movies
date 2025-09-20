@@ -1,6 +1,8 @@
 import './ErrorMessage.module.css';
 
-interface ErrorMessageProps {}
+interface ErrorMessageProps {
+  name: string;
+}
 
 const ErrorMessage = (props: ErrorMessageProps) => {
   return <></>;

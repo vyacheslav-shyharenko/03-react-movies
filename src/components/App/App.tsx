@@ -1,18 +1,11 @@
-import MovieGrid from '../MovieGrid/MovieGrid';
-import MovieModal from '../MovieModal/MovieModal';
-import SearchBar from '../SearchBar/SearchBar';
 import './App.module.css';
 
-interface AppProps {}
+interface AppProps {
+  name: string;
+}
 
 const App = (props: AppProps) => {
-  return (
-    <>
-      <SearchBar />
-      <MovieGrid />
-      <MovieModal />
-    </>
-  );
+  return <></>;
 };
 
 export default App;

@@ -1,7 +1,9 @@
 import './MovieModal.module.css';
 import css from './MovieModal.module.css';
 
-interface MovieModalProps {}
+interface MovieModalProps {
+  name: string;
+}
 
 const MovieModal = (props: MovieModalProps) => {
   return (

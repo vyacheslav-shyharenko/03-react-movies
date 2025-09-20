@@ -1,7 +1,9 @@
 import './MovieGrid.module.css';
 import css from './MovieGrid.module.css';
 
-interface MovieGridProps {}
+interface MovieGridProps {
+  name: string;
+}
 
 const MovieGrid = (props: MovieGridProps) => {
   return (
