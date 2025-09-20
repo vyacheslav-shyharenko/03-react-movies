@@ -1,10 +1,10 @@
 import './App.module.css';
 
 interface AppProps {
-  name: string;
+  props?: string;
 }
 
-const App = (props: AppProps) => {
+const App = ({ props }: AppProps) => {
   return <>{props}</>;
 };
 
