@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import type { Movie } from '../types/movie';
+import type { Movie } from '../../types/movie';
 import './MovieModal.module.css';
 import css from './MovieModal.module.css';
 

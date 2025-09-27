@@ -1,5 +1,5 @@
 import toast, { Toaster } from 'react-hot-toast';
-import type { FetchMoviesParams } from '../services/movieService';
+import type { FetchMoviesParams } from '../../services/movieService';
 import './SearchBar.module.css';
 import styles from './SearchBar.module.css';
 

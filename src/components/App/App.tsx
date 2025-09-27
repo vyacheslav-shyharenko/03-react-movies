@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import toast, { Toaster } from 'react-hot-toast';
+import fetchMovies, { type FetchMoviesParams } from '../../services/movieService';
+import type { Movie } from '../../types/movie';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
 import Loader from '../Loader/Loader';
 import MovieGrid from '../MovieGrid/MovieGrid';
 import MovieModal from '../MovieModal/MovieModal';
 import SearchBar from '../SearchBar/SearchBar';
-import fetchMovies, { type FetchMoviesParams } from '../services/movieService';
-import type { Movie } from '../types/movie';
 import './App.module.css';
 
 const App = () => {
