@@ -1,11 +1,11 @@
-import './Loader.module.css';
+import css from './Loader.module.css';
 
-interface LoaderProps {
-  name: string;
-}
-
-const Loader = (props: LoaderProps) => {
-  return <>{props}</>;
+const Loader = () => {
+  return (
+    <>
+      <p className={css.text}>Loading movies, please wait...</p>
+    </>
+  );
 };
 
 export default Loader;

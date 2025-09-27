@@ -1,14 +1,40 @@
+import toast, { Toaster } from 'react-hot-toast';
+import type { FetchMoviesParams } from '../services/movieService';
 import './SearchBar.module.css';
 import styles from './SearchBar.module.css';
 
 interface SearchBarProps {
-  name: string;
+  onSubmit: (params: FetchMoviesParams) => void;
 }
 
-const SearchBar = (props: SearchBarProps) => {
+const SearchBar = ({ onSubmit }: SearchBarProps) => {
+  type FormEventType = React.FormEvent<HTMLFormElement>;
+
+  const handleSubmit = (event: FormEventType) => {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+
+    const query = form.get('query') as string;
+
+    if (query === '') {
+      return toast('Please enter your search query.', {
+        icon: '🥺',
+        style: {
+          borderRadius: '10px',
+          background: '#3f3f3fff',
+          color: '#fff',
+        },
+      });
+    }
+
+    onSubmit({ query });
+
+    event.currentTarget.reset();
+  };
+
   return (
     <>
-      {props}
       <header className={styles.header}>
         <div className={styles.container}>
           <a
@@ -19,7 +45,7 @@ const SearchBar = (props: SearchBarProps) => {
           >
             Powered by TMDB
           </a>
-          <form className={styles.form}>
+          <form onSubmit={handleSubmit} className={styles.form}>
             <input
               className={styles.input}
               type="text"
@@ -34,6 +60,7 @@ const SearchBar = (props: SearchBarProps) => {
           </form>
         </div>
       </header>
+      <Toaster position="bottom-left" reverseOrder={false} />
     </>
   );
 };
