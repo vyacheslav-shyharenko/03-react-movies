@@ -8,17 +8,11 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ onSubmit }: SearchBarProps) => {
-  type FormEventType = React.FormEvent<HTMLFormElement>;
-
-  const handleSubmit = (event: FormEventType) => {
-    event.preventDefault();
-
-    const form = new FormData(event.currentTarget);
-
-    const query = form.get('query') as string;
+  const handleSubmit = (formData: FormData) => {
+    const query = formData.get('query') as string;
 
     if (query === '') {
-      return toast('Please enter your search query.', {
+      toast('Please enter your search query.', {
         icon: '🥺',
         style: {
           borderRadius: '10px',
@@ -26,11 +20,10 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
           color: '#fff',
         },
       });
+      return;
     }
 
     onSubmit({ query });
-
-    event.currentTarget.reset();
   };
 
   return (
@@ -45,7 +38,7 @@ const SearchBar = ({ onSubmit }: SearchBarProps) => {
           >
             Powered by TMDB
           </a>
-          <form onSubmit={handleSubmit} className={styles.form}>
+          <form action={handleSubmit} className={styles.form}>
             <input
               className={styles.input}
               type="text"

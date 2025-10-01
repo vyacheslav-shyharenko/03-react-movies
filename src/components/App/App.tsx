@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import toast, { Toaster } from 'react-hot-toast';
 import fetchMovies, { type FetchMoviesParams } from '../../services/movieService';
@@ -47,39 +47,6 @@ const App = () => {
     setSelectedMovie(movie);
   };
 
-  const handleCloseModal = (
-    event: React.MouseEvent<HTMLDivElement> | React.MouseEvent<HTMLButtonElement>,
-  ) => {
-    if (event.target === event.currentTarget) {
-      setSelectedMovie(null);
-    }
-  };
-
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setSelectedMovie(null);
-      }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (selectedMovie) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [selectedMovie]);
-
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
@@ -89,7 +56,7 @@ const App = () => {
       {error && <ErrorMessage />}
       <MovieGrid movies={movies} onSelect={handleSelect} />
 
-      {selectedMovie && <MovieModal movie={selectedMovie} onClose={handleCloseModal} />}
+      {selectedMovie && <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)} />}
     </>
   );
 };
